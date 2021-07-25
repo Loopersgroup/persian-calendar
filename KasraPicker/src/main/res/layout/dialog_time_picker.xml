@@ -128,9 +128,12 @@
                 android:id="@+id/minute_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:mnpFontname="IranYekan.ttf"
+                app:mnpFontname="font_regular.ttf"
+                app:mnpTextSize="17sp"
                 app:mnpMaxValue="59"
                 app:mnpMinValue="0"
+                app:mnpWrapped="false"
+                android:visibility="visible"
                 app:mnpTextColor="@color/buttonBackgroundColor" />
 
             <androidx.appcompat.widget.AppCompatImageView
@@ -150,9 +153,13 @@
                 android:id="@+id/hour_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:mnpFontname="IranYekan.ttf"
+                app:mnpFontname="font_regular.ttf"
                 app:mnpMaxValue="23"
                 app:mnpMinValue="0"
+                app:mnpWrapped="false"
+                android:visibility="visible"
+                app:mnpTextSize="17sp"
+
                 app:mnpTextColor="@color/buttonBackgroundColor" />
 
 

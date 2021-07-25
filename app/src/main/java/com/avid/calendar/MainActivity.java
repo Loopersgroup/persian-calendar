@@ -2,6 +2,7 @@ package com.avid.calendar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.appcompat.widget.AppCompatEditText;
 
 import android.os.Bundle;
 
@@ -18,24 +19,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         AppCompatButton button = findViewById(R.id.my_btn);
+        AppCompatEditText dateTxt = findViewById(R.id.date_txt);
+        AppCompatEditText TimeTxt = findViewById(R.id.time_txt);
         AppCompatButton timeBtn = findViewById(R.id.time_btn);
         button.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
                 datePickerDialog = new DatePickerDialog(MainActivity.this);
-                datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Range, DateRangeCalendarView.HolidayMode.Enable);
+                datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Range, DateRangeCalendarView.HolidayMode.Disable);
 
                 datePickerDialog.setCanceledOnTouchOutside(true);
                 datePickerDialog.setOnRangeDateSelectedListener(new DatePickerDialog.OnRangeDateSelectedListener() {
                     @Override
                     public void onRangeDateSelected(PersianCalendar startDate, PersianCalendar endDate) {
-//                        txtStartDate.setText(startDate.getPersianShortDate());
-//                        txtEndDate.setText(endDate.getPersianShortDate());
+//                        dateTxt.setText(startDate.getPersianShortDate());
                     }
                 });
 
                 datePickerDialog.showDialog();
-            }
+
 
 
         });
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.TimePickerCallback() {
                 @Override
                 public void onTimeSelected(int hours, int mins) {
-
+//                    TimeTxt.setText(String.valueOf(hours)+" : "+String.valueOf(mins));
                 }
 
                 @Override
