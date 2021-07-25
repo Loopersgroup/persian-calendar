@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AwesomeCalendar</string>
+
+    <string name="mon">دوشنبه</string>
+    <string name="tue">سه شنبه</string>
+    <string name="wed">چهارشنبه</string>
+    <string name="thu">پنجشنبه</string>
+    <string name="fri">جمعه</string>
+    <string name="sat">شنبه</string>
+    <string name="sun">یکشنبه</string>
+    <string name="start_date">تاریخ شروع :</string>
+    <string name="end_date">تاریخ پایان :</string>
+    <string name="cancel">لغو</string>
+    <string name="done">تایید</string>
+    <string name="title_time_picker">انتخاب زمان</string>
+    <string name="select_time">Select a Time</string>
+    <string name="selection_item">انتخاب کنید</string>
+    <string name="minute">دقیقه</string>
+    <string name="hour">ساعت</string>
+    <string name="now">الان</string>
+    <string name="font_path_light">fonts/vazir/Vazir-Light-FD.ttf</string></resources>

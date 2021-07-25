@@ -1,0 +1,5 @@
+include ':KasraPicker'
+include ':persiancalendar'
+include ':numberpicker'
+include ':app'
+rootProject.name = "calendar"

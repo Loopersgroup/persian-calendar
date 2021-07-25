@@ -1,0 +1,24 @@
+apply plugin: 'com.android.library'
+
+//def appConfig = rootProject.ext.configuration
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 17
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+
+        vectorDrawables.useSupportLibrary = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.github.StephenVinouze:MaterialNumberPicker:1.1.0'
+}

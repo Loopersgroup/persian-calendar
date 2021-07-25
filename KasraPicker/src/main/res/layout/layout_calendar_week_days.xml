@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llTitleWeekContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:layout_gravity="center"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal">
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek1"
+        android:text="@string/sat" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek2"
+        android:text="@string/sun" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek3"
+        android:text="@string/mon" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek4"
+        android:text="@string/tue" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek5"
+        android:text="@string/wed" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek6"
+        android:text="@string/thu" />
+
+    <com.kasra.picker.customviews.CustomTextView
+        style="@style/WeekDayTitleStyle"
+        android:tag="dayOfWeek7"
+        android:text="@string/fri" />
+
+</LinearLayout>

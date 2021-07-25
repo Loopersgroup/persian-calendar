@@ -1,0 +1,8 @@
+{
+  "pushServerURL": "http://192.168.50.16:9999/",
+  "android": {
+    "senderID": "462053249869",
+    "variantID": "4202c5d3-85f3-4d5e-b497-c6d4fec518f7",
+    "variantSecret": "ec009f3d-0893-4810-915d-c11f0e227131"
+  }
+}
