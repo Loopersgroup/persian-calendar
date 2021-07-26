@@ -17,7 +17,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 
-import com.github.stephenvinouze.materialnumberpickercore.MaterialNumberPicker;
 import com.kasra.picker.R;
 
 
@@ -26,8 +25,8 @@ import java.util.Calendar;
 public class TimePickerDialog extends Dialog {
     AppCompatImageView tvDialogCancel;
     AppCompatButton tvDialogDone;
-    MaterialNumberPicker hourPicker;
-    MaterialNumberPicker minutePicker;
+    NumberPicker hourPicker;
+    NumberPicker minutePicker;
     private String mTitle;
     private int hours, minutes;
     AppCompatTextView hourEditTxt;
@@ -74,7 +73,11 @@ public class TimePickerDialog extends Dialog {
         minutePicker = findViewById(R.id.minute_picker);
         hourEditTxt = findViewById(R.id.hour_time_txt);
         minuteEditTxt = findViewById(R.id.minutes_time_txt);
-        minutePicker.setTextColor(ContextCompat.getColor(getContext(), R.color.buttonBackgroundColor));
+        hourPicker.setMinValue(0);
+        hourPicker.setMaxValue(23);
+        minutePicker.setMinValue(0);
+        minutePicker.setMaxValue(59);
+
         hourPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

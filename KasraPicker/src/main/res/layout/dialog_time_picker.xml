@@ -123,19 +123,12 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-
-            <com.github.stephenvinouze.materialnumberpickercore.MaterialNumberPicker
+            <NumberPicker
                 android:id="@+id/minute_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:mnpFontname="font_regular.ttf"
-                app:mnpTextSize="17sp"
-                app:mnpMaxValue="59"
-                app:mnpMinValue="0"
-                app:mnpWrapped="false"
-                android:visibility="visible"
-                app:mnpTextColor="@color/buttonBackgroundColor" />
-
+                android:theme="@style/DefaultNumberPickerTheme"
+                />
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -148,21 +141,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-
-            <com.github.stephenvinouze.materialnumberpickercore.MaterialNumberPicker
+            <NumberPicker
                 android:id="@+id/hour_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:mnpFontname="font_regular.ttf"
-                app:mnpMaxValue="23"
-                app:mnpMinValue="0"
-                app:mnpWrapped="false"
-                android:visibility="visible"
-                app:mnpTextSize="17sp"
+                android:theme="@style/DefaultNumberPickerTheme"
 
-                app:mnpTextColor="@color/buttonBackgroundColor" />
-
-
+                />
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -232,64 +217,4 @@
             android:textColor="@color/headerBackgroundColor"
             android:textSize="14sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
-</androidx.appcompat.widget.LinearLayoutCompat><!--<RelativeLayout-->
-    <!--    android:layout_width="match_parent"-->
-    <!--    android:layout_height="200dp"-->
-    <!--    android:background="#FFFFFF">-->
-
-    <!--    <RelativeLayout-->
-    <!--        android:id="@+id/rlTimePickerContainer"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:gravity="center_vertical"-->
-    <!--        android:padding="8dp">-->
-
-    <!--        <com.kasra.picker.customviews.CustomTextView-->
-    <!--            android:id="@+id/tvHeaderTitle"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_centerHorizontal="true"-->
-    <!--            android:text="@string/title_time_picker"-->
-    <!--            android:textColor="@color/default_date_color"-->
-    <!--            android:textSize="18sp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--        <com.kasra.picker.customviews.CustomTextView-->
-    <!--            android:id="@+id/tvHeaderCancel"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:text="@string/cancel"-->
-    <!--            android:textColor="@color/default_date_color"-->
-    <!--            android:textSize="18sp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--        <com.kasra.picker.customviews.CustomTextView-->
-    <!--            android:id="@+id/tvHeaderDone"-->
-    <!--            android:layout_width="wrap_content"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_alignParentRight="true"-->
-    <!--            android:text="@string/done"-->
-    <!--            android:textColor="@color/default_date_color"-->
-    <!--            android:textSize="18sp"-->
-    <!--            android:textStyle="bold" />-->
-
-    <!--    </RelativeLayout>-->
-
-    <!--    <RelativeLayout-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="match_parent"-->
-    <!--        android:layout_below="@id/rlTimePickerContainer"-->
-    <!--        android:gravity="center">-->
-
-    <!--        <TimePicker-->
-    <!--            android:id="@+id/timePicker"-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="match_parent"-->
-    <!--            android:numbersTextColor="@color/calendar_text"-->
-    <!--            android:timePickerMode="spinner">-->
-
-    <!--        </TimePicker>-->
-
-    <!--    </RelativeLayout>-->
-
-    <!--</RelativeLayout>-->
+</androidx.appcompat.widget.LinearLayoutCompat>
