@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 
@@ -37,6 +38,7 @@ public class DatePickerDialog extends Dialog {
     private AppCompatTextView dateTxtfirst,dateTxtSecond;
     private PersianCalendar date, startDate, endDate;
     private Typeface typeface;
+    AppCompatImageView cancelImg;
     //endregion
 
     public DatePickerDialog(Context context) {
@@ -70,12 +72,19 @@ public class DatePickerDialog extends Dialog {
         fromDateTxt = findViewById(R.id.date_txt);
         dateTxtfirst = findViewById(R.id.date_one_txt);
         dateTxtSecond = findViewById(R.id.date_two_txt);
+        cancelImg = findViewById(R.id.cancel_img);
         btn_Accept.setTypeface(typeface);
         toDateTxt.setTypeface(typeface);
         fromDateTxt.setTypeface(typeface);
         dateTxtfirst.setTypeface(typeface);
         dateTxtSecond.setTypeface(typeface);
         acceptButtonColor = ContextCompat.getColor(mContext, R.color.buttonBackgroundColor);
+        cancelImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 //        calendar = findViewById(R.id.calendar);
         //endregion
     }

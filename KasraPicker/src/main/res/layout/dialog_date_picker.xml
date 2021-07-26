@@ -6,6 +6,20 @@
     android:layout_gravity="center_horizontal"
     android:background="@drawable/card_background"
     android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cancel_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/cancel_dialog_icon"
+            android:layout_gravity="start"
+            android:padding="16dp"/>
+
+
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/content"
