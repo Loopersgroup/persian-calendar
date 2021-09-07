@@ -122,6 +122,15 @@ public class DateRangeCalendarView extends FrameLayout {
         }
         initView();
     }
+    public void setFromDate(PersianCalendar minSelectedDate){
+        this.minSelectedDate=minSelectedDate;
+    }
+    public void setEndDate(PersianCalendar endDate){
+        this.maxSelectedDate=endDate;
+    }
+    public void setselectedCal(PersianCalendar selectedCal){
+        this.selectedCal=selectedCal;
+    }
 
     public DateRangeCalendarView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -204,15 +213,7 @@ public class DateRangeCalendarView extends FrameLayout {
         imgVNavLeft = mainView.findViewById(R.id.imgVNavLeft);
         imgVNavRight = mainView.findViewById(R.id.imgVNavRight);
         rlHeaderCalendar = mainView.findViewById(R.id.rlHeaderCalendar);
-//        mainView.setOnTouchListener(new OnSwipeTouchListener(mContext) {
-//            public void onSwipeRight() {
-//                nextMonth();
-//            }
-//
-//            public void onSwipeLeft() {
-//                prevMonth();
-//            }
-//        });
+
 
         setListeners();
 
@@ -486,15 +487,11 @@ public class DateRangeCalendarView extends FrameLayout {
     private void drawDayContainer(DayContainer container, PersianCalendar calendar) {
         int date = calendar.getPersianDay();
         int dateGR = calendar.get(Calendar.DATE);
-
         //----------------------------------------------------------------
         if (currentCalendarMonth.getPersianMonth() != calendar.getPersianMonth()) {
             hideDayContainer(container);
         } else if (isDisableDaysAgo && holidayModeBg == HolidayMode.Disable.getValue() && getCurrentDate().after(calendar) && (getCurrentDate().get(Calendar.DAY_OF_YEAR) != calendar.get(Calendar.DAY_OF_YEAR))) {
             disableDayContainer(container);
-//            container.tvDate.setText(String.valueOf(date));
-
-//            setToday(container, calendar);
         } else {
             int key = DayContainer.GetContainerKey(calendar);
 
@@ -512,9 +509,24 @@ public class DateRangeCalendarView extends FrameLayout {
             //---check date selected-------------------------------------------------------------
             if ((selectionMode == SelectionMode.Single.getValue()) && (selectedCal != null && calendar.getPersianShortDate().equals(selectedCal.getPersianShortDate()))) {
                 makeAsSelectedDate(container, STRIP_TYPE_LEFT);
-            } else if ((selectionMode == SelectionMode.Range.getValue()) && (minSelectedDate != null && calendar.getPersianShortDate().equals(minSelectedDate.getPersianShortDate()))) {
-                makeAsSelectedDate(container, STRIP_TYPE_LEFT);
             }
+            if(selectionMode == SelectionMode.Range.getValue()){
+                if(minSelectedDate != null && calendar.getPersianShortDate().equals(minSelectedDate.getPersianShortDate()))
+                {
+                    makeAsSelectedDate(container, STRIP_TYPE_LEFT);
+                }
+                if(maxSelectedDate != null && calendar.getPersianShortDate().equals(maxSelectedDate.getPersianShortDate()))
+                {
+                    makeAsSelectedDate(container, STRIP_TYPE_RIGHT);
+                }
+                if(minSelectedDate != null&&maxSelectedDate != null&&
+                        calendar.getPersianDay()>minSelectedDate.getPersianDay()
+                        &&calendar.getPersianDay()<maxSelectedDate.getPersianDay()){
+                    makeAsRangeDate(container);
+                }
+            }
+
+
 
             //---disable max date-------------------------------------------------------------
             if ((getMaxDate() != null) && holidayModeBg == HolidayMode.Disable.getValue()) {
@@ -810,7 +822,7 @@ public class DateRangeCalendarView extends FrameLayout {
     }
 
     //region selectionMode -> Getter/Setter
-    private int selectionMode = SelectionMode.Range.getValue();
+    private int selectionMode = SelectionMode.Single.getValue();
 
     public int getHolidayModeBg() {
         return holidayModeBg;

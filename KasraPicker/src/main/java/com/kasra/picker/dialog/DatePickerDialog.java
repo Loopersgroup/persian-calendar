@@ -31,11 +31,11 @@ public class DatePickerDialog extends Dialog {
     private Context mContext;
     private DateRangeCalendarView calendar;
     private Button btn_Accept;
-    private FrameLayout contentLayout,swipeItem;
+    private FrameLayout contentLayout, swipeItem;
     private AppCompatTextView toDateTxt;
     private LinearLayout toDateLinear;
     private AppCompatTextView fromDateTxt;
-    private AppCompatTextView dateTxtfirst,dateTxtSecond;
+    private AppCompatTextView dateTxtfirst, dateTxtSecond;
     private PersianCalendar date, startDate, endDate;
     private Typeface typeface;
     AppCompatImageView cancelImg;
@@ -60,10 +60,19 @@ public class DatePickerDialog extends Dialog {
         setCurrentDate(today);
     }
 
+    public void selectedDate(PersianCalendar selectedDate) {
+        this.date=selectedDate;
+    }
+    public void selectedStartDate(PersianCalendar selectedDate) {
+        this.startDate=selectedDate;
+    }
+    public void selectedEndDate(PersianCalendar selectedDate) {
+        this.endDate=selectedDate;
+    }
+
     private void initView() {
         //region init View & Font
         setContentView(R.layout.dialog_date_picker);
-
         btn_Accept = findViewById(R.id.btn_Accept);
         toDateLinear = findViewById(R.id.to_date_linear);
         contentLayout = findViewById(R.id.content);
@@ -92,6 +101,24 @@ public class DatePickerDialog extends Dialog {
     @SuppressLint("ClickableViewAccessibility")
     public void showDialog() {
         calendar = new DateRangeCalendarView(mContext);
+        if (selectionMode == DateRangeCalendarView.SelectionMode.Single) {
+            calendar.setselectedCal(date);
+            fromDateTxt.setText(date.getPersianShortDate());
+        }
+        if (selectionMode == DateRangeCalendarView.SelectionMode.Range) {
+            calendar.setFromDate(startDate);
+            calendar.setEndDate(endDate);
+            if (startDate != null)
+                fromDateTxt.setText(startDate.getPersianShortDate());
+            else {
+                fromDateTxt.setText(startDate.getPersianShortDate());
+            }
+            if (endDate != null)
+                toDateTxt.setText(endDate.getPersianShortDate());
+            else {
+                toDateTxt.setText(mContext.getResources().getString(R.string.selection_item));
+            }
+        }
         calendar.setCalendarListener(new DateRangeCalendarView.CalendarListener() {
             @Override
             public void onDateSelected(PersianCalendar _date) {
@@ -111,7 +138,7 @@ public class DatePickerDialog extends Dialog {
                     }
                     if (endDate != null)
                         toDateTxt.setText(endDate.getPersianShortDate());
-                    else{
+                    else {
                         toDateTxt.setText(mContext.getResources().getString(R.string.selection_item));
                     }
                 }

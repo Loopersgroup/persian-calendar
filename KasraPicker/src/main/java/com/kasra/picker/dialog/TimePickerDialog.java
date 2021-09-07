@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -33,6 +34,7 @@ public class TimePickerDialog extends Dialog {
     AppCompatTextView hourEditTxt;
     AppCompatTextView minuteEditTxt;
     Context mContext;
+
 
     public interface TimePickerCallback {
         void onTimeSelected(int hours, int mins);
@@ -67,13 +69,16 @@ public class TimePickerDialog extends Dialog {
     }
 
     private void initView() {
-        setContentView(R.layout.dialog_time_picker);
-        tvDialogDone = findViewById(R.id.submit_btn);
-        tvDialogCancel = findViewById(R.id.cancel_btn);
-        hourPicker = findViewById(R.id.hour_picker);
-        minutePicker = findViewById(R.id.minute_picker);
-        hourEditTxt = findViewById(R.id.hour_time_txt);
-        minuteEditTxt = findViewById(R.id.minutes_time_txt);
+        hours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        minutes = Calendar.getInstance().get(Calendar.MINUTE);
+        View view= LayoutInflater.from(mContext).inflate(R.layout.dialog_time_picker,null);
+        setContentView(view);
+        tvDialogDone = view.findViewById(R.id.submit_btn);
+        tvDialogCancel = view.findViewById(R.id.cancel_btn);
+        hourPicker = view.findViewById(R.id.hour_picker);
+        minutePicker =view.findViewById(R.id.minute_picker);
+        hourEditTxt =view. findViewById(R.id.hour_time_txt);
+        minuteEditTxt =view. findViewById(R.id.minutes_time_txt);
         hourPicker.setMinValue(0);
         hourPicker.setMaxValue(23);
         minutePicker.setMinValue(0);
@@ -94,6 +99,12 @@ public class TimePickerDialog extends Dialog {
             }
         });
 
+    }
+    public void initHour(int hours){
+        this.hours=hours;
+    }
+    public void initMinute(int minutes){
+        this.minutes=minutes;
     }
 
     private void setListeners() {
@@ -119,8 +130,7 @@ public class TimePickerDialog extends Dialog {
     }
 
     public void showDialog() {
-        hours = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
-        minutes = Calendar.getInstance().get(Calendar.MINUTE);
+
         hourEditTxt.setText(setNumberEditText(String.valueOf(hours)));
         minuteEditTxt.setText(setNumberEditText(String.valueOf(minutes)));
         hourPicker.setValue(hours);
