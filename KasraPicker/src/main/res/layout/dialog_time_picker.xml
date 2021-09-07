@@ -123,7 +123,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-            <NumberPicker
+            <com.kasra.picker.utils.CustomNumberPicker
                 android:id="@+id/minute_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -141,7 +141,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5">
-            <NumberPicker
+            <com.kasra.picker.utils.CustomNumberPicker
                 android:id="@+id/hour_picker"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

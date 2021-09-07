@@ -47,10 +47,10 @@
     <style name="TimePicker" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:fontFamily">@font/font_light</item>
     </style>
-    <style name="DefaultNumberPickerTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="DefaultNumberPickerTheme" >
         <item name="colorControlNormal">@android:color/transparent</item>
         <item name="android:textSize">17sp</item> // add if you want to change size
-        <item name="android:fontFamily">@font/font_regular</item> // add font (this font folder is present in res folder)
+        <item name="android:fontFamily">@font/font_medium</item>
         <item name="android:textColorPrimary">@color/buttonBackgroundColor</item>
     </style>
 
