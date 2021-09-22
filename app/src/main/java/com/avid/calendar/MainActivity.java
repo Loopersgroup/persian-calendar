@@ -25,17 +25,15 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = null;
             datePickerDialog = new DatePickerDialog(MainActivity.this);
-            datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Range, DateRangeCalendarView.HolidayMode.Disable);
+            datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Single, DateRangeCalendarView.HolidayMode.Enable);
             datePickerDialog.setCanceledOnTouchOutside(true);
             PersianCalendar persianCalendar = new PersianCalendar();
             persianCalendar.setPersianDate(1400, 5, 22);
-            datePickerDialog.selectedStartDate(persianCalendar);
-            PersianCalendar persianCalendar2 = new PersianCalendar();
-            persianCalendar2.setPersianDate(1400, 5, 25);
-            datePickerDialog.selectedEndDate(persianCalendar2);
-            datePickerDialog.setOnRangeDateSelectedListener((startDate, endDate) -> {
-//                        dateTxt.setText(startDate.getPersianShortDate());
-            });
+            datePickerDialog.selectedDate(persianCalendar);
+
+//            datePickerDialog.setOnSingleDateSelectedListener((startDate, endDate) -> {
+////                        dateTxt.setText(startDate.getPersianShortDate());
+//            });
 
             datePickerDialog.showDialog();
 
