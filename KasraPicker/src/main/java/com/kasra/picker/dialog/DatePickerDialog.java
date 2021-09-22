@@ -100,6 +100,15 @@ public class DatePickerDialog extends Dialog {
 
     @SuppressLint("ClickableViewAccessibility")
     public void showDialog() {
+        if(date==null){
+            date= new PersianCalendar();
+        }
+        if(fromDateTxt==null){
+            startDate= new PersianCalendar();
+        }
+        if(toDateTxt==null){
+            endDate= new PersianCalendar();
+        }
         calendar = new DateRangeCalendarView(mContext);
         if (selectionMode == DateRangeCalendarView.SelectionMode.Single) {
             calendar.setselectedCal(date);
