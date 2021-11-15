@@ -3,6 +3,7 @@ package com.kasra.picker.dialog;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
@@ -26,6 +27,8 @@ import com.kasra.picker.utils.MyUtils;
 import com.kasra.picker.utils.OnSwipeTouchListener;
 import com.kasra.picker.utils.PersianCalendar;
 
+import java.util.Locale;
+
 public class DatePickerDialog extends Dialog {
     //region Fields
     private Context mContext;
@@ -39,6 +42,7 @@ public class DatePickerDialog extends Dialog {
     private PersianCalendar date, startDate, endDate;
     private Typeface typeface;
     AppCompatImageView cancelImg;
+    private Locale locale;
     //endregion
 
     public DatePickerDialog(Context context) {
@@ -60,14 +64,42 @@ public class DatePickerDialog extends Dialog {
         setCurrentDate(today);
     }
 
+
+    public DatePickerDialog(Context context, Locale locale) {
+        super(context);
+        mContext = context;
+        this.locale = locale;
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        mContext.getResources().updateConfiguration(config, mContext.getResources().getDisplayMetrics());
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+
+        if (getWindow() != null) {
+            getWindow().setGravity(Gravity.CENTER);
+            getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+
+        this.typeface = FontUtils.Default(mContext);
+
+        initView();
+
+        PersianCalendar today = new PersianCalendar();
+        setCurrentDate(today);
+    }
+
+
     public void selectedDate(PersianCalendar selectedDate) {
-        this.date=selectedDate;
+        this.date = selectedDate;
     }
+
     public void selectedStartDate(PersianCalendar selectedDate) {
-        this.startDate=selectedDate;
+        this.startDate = selectedDate;
     }
+
     public void selectedEndDate(PersianCalendar selectedDate) {
-        this.endDate=selectedDate;
+        this.endDate = selectedDate;
     }
 
     private void initView() {
@@ -100,14 +132,14 @@ public class DatePickerDialog extends Dialog {
 
     @SuppressLint("ClickableViewAccessibility")
     public void showDialog() {
-        if(date==null){
-            date= new PersianCalendar();
+        if (date == null) {
+            date = new PersianCalendar();
         }
-        if(fromDateTxt==null){
-            startDate= new PersianCalendar();
+        if (fromDateTxt == null) {
+            startDate = new PersianCalendar();
         }
-        if(toDateTxt==null){
-            endDate= new PersianCalendar();
+        if (toDateTxt == null) {
+            endDate = new PersianCalendar();
         }
         calendar = new DateRangeCalendarView(mContext);
         if (selectionMode == DateRangeCalendarView.SelectionMode.Single) {
@@ -241,7 +273,7 @@ public class DatePickerDialog extends Dialog {
         btn_Accept.setBackgroundColor(acceptButtonColor);
         if (selectionMode == DateRangeCalendarView.SelectionMode.Single) {
             toDateLinear.setVisibility(View.GONE);
-            dateTxtfirst.setText("تاریخ انتخابی");
+            dateTxtfirst.setText(mContext.getResources().getString(R.string.selected_time));
         }
         contentLayout.setOnTouchListener(new OnSwipeTouchListener(mContext) {
             public void onSwipeRight() {

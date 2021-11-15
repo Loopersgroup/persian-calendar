@@ -122,14 +122,17 @@ public class DateRangeCalendarView extends FrameLayout {
         }
         initView();
     }
-    public void setFromDate(PersianCalendar minSelectedDate){
-        this.minSelectedDate=minSelectedDate;
+
+    public void setFromDate(PersianCalendar minSelectedDate) {
+        this.minSelectedDate = minSelectedDate;
     }
-    public void setEndDate(PersianCalendar endDate){
-        this.maxSelectedDate=endDate;
+
+    public void setEndDate(PersianCalendar endDate) {
+        this.maxSelectedDate = endDate;
     }
-    public void setselectedCal(PersianCalendar selectedCal){
-        this.selectedCal=selectedCal;
+
+    public void setselectedCal(PersianCalendar selectedCal) {
+        this.selectedCal = selectedCal;
     }
 
     public DateRangeCalendarView(Context context, AttributeSet attrs) {
@@ -404,10 +407,11 @@ public class DateRangeCalendarView extends FrameLayout {
      *
      * @param month
      */
+
     private void drawCalendarForMonth(PersianCalendar month) {
         tvYearTitle.setTextSize(textSizeTitle);
 
-        tvYearTitle.setText(String.format(locale, "%s %d", month.getPersianMonthName(), month.getPersianYear()));
+        tvYearTitle.setText(String.format(locale, "%s %d", getContext().getResources().getStringArray(R.array.months)[month.getPersianMonth()], month.getPersianYear()));
 
         int _month = month.getPersianMonth() + 1;
         switch (_month) {
@@ -510,22 +514,19 @@ public class DateRangeCalendarView extends FrameLayout {
             if ((selectionMode == SelectionMode.Single.getValue()) && (selectedCal != null && calendar.getPersianShortDate().equals(selectedCal.getPersianShortDate()))) {
                 makeAsSelectedDate(container, STRIP_TYPE_LEFT);
             }
-            if(selectionMode == SelectionMode.Range.getValue()){
-                if(minSelectedDate != null && calendar.getPersianShortDate().equals(minSelectedDate.getPersianShortDate()))
-                {
+            if (selectionMode == SelectionMode.Range.getValue()) {
+                if (minSelectedDate != null && calendar.getPersianShortDate().equals(minSelectedDate.getPersianShortDate())) {
                     makeAsSelectedDate(container, STRIP_TYPE_LEFT);
                 }
-                if(maxSelectedDate != null && calendar.getPersianShortDate().equals(maxSelectedDate.getPersianShortDate()))
-                {
+                if (maxSelectedDate != null && calendar.getPersianShortDate().equals(maxSelectedDate.getPersianShortDate())) {
                     makeAsSelectedDate(container, STRIP_TYPE_RIGHT);
                 }
-                if(minSelectedDate != null&&maxSelectedDate != null&&
-                        calendar.getPersianDay()>minSelectedDate.getPersianDay()
-                        &&calendar.getPersianDay()<maxSelectedDate.getPersianDay()){
+                if (minSelectedDate != null && maxSelectedDate != null &&
+                        calendar.getPersianDay() > minSelectedDate.getPersianDay()
+                        && calendar.getPersianDay() < maxSelectedDate.getPersianDay()) {
                     makeAsRangeDate(container);
                 }
             }
-
 
 
             //---disable max date-------------------------------------------------------------
@@ -638,9 +639,10 @@ public class DateRangeCalendarView extends FrameLayout {
             }
         }
     }
-    int convertDpTpPx(float dip){
+
+    int convertDpTpPx(float dip) {
         Resources r = getResources();
-        return (int)TypedValue.applyDimension(
+        return (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 dip,
                 r.getDisplayMetrics()
@@ -662,8 +664,7 @@ public class DateRangeCalendarView extends FrameLayout {
             GradientDrawable mDrawable = (GradientDrawable) ContextCompat.getDrawable(mContext, R.drawable.shape_rect);
             mDrawable.setColor(selectedDateCircleColor);
             container.tvDate.setBackground(mDrawable);
-            if(selectionMode != SelectionMode.Single.getValue())
-            {
+            if (selectionMode != SelectionMode.Single.getValue()) {
                 GradientDrawable mDrawable4 = (GradientDrawable) ContextCompat.getDrawable(mContext, R.drawable.range_bg);
                 mDrawable4.setColor(rangeStripColor);
                 container.strip.setBackground(mDrawable4);

@@ -1,21 +1,37 @@
 <resources>
     <string name="app_name">AwesomeCalendar</string>
 
-    <string name="mon">دوشنبه</string>
-    <string name="tue">سه شنبه</string>
-    <string name="wed">چهارشنبه</string>
-    <string name="thu">پنجشنبه</string>
-    <string name="fri">جمعه</string>
-    <string name="sat">شنبه</string>
-    <string name="sun">یکشنبه</string>
-    <string name="start_date">تاریخ شروع :</string>
-    <string name="end_date">تاریخ پایان :</string>
-    <string name="cancel">لغو</string>
-    <string name="done">تایید</string>
-    <string name="title_time_picker">انتخاب زمان</string>
+    <string name="mon">Monday</string>
+    <string name="tue">Tuesday</string>
+    <string name="wed">Wednesday</string>
+    <string name="thu">Thursday</string>
+    <string name="fri">Friday</string>
+    <string name="sat">Saturday</string>
+    <string name="sun">Sunday</string>
+    <string name="start_date">start date :</string>
+    <string name="end_date">end date :</string>
+    <string name="cancel">Cancel</string>
+    <string name="done">Done</string>
+    <string name="title_time_picker">Select Time</string>
     <string name="select_time">Select a Time</string>
-    <string name="selection_item">انتخاب کنید</string>
-    <string name="minute">دقیقه</string>
-    <string name="hour">ساعت</string>
-    <string name="now">الان</string>
-    <string name="font_path_light">fonts/vazir/Vazir-Light-FD.ttf</string></resources>
+    <string name="selection_item">Choose</string>
+    <string name="minute">Minute</string>
+    <string name="hour">Hour</string>
+    <string name="now">now</string>
+    <string name="font_path_light">fonts/vazir/Vazir-Light-FD.ttf</string>
+    <string name="selected_time">selected time</string>
+    <string-array name="months">
+            <item name="farvardin">Farvardin</item>
+            <item name="ordibehesht">Ordibehesht</item>
+            <item name="khordad">Khordad</item>
+            <item name="tir">Tir</item>
+            <item name="mordad">Mordad</item>
+            <item name="shahrivar">Shahrivar</item>
+            <item name="mehr">Mehr</item>
+            <item name="aban">Aban</item>
+            <item name="azar">Azar</item>
+            <item name="dey">Dey</item>
+            <item name="bahman">Bahman</item>
+            <item name="esfand">Esfand</item>
+    </string-array>
+</resources>

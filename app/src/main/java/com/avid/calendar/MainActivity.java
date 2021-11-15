@@ -11,6 +11,8 @@ import com.kasra.picker.dialog.DatePickerDialog;
 import com.kasra.picker.dialog.TimePickerDialog;
 import com.kasra.picker.utils.PersianCalendar;
 
+import java.util.Locale;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +26,9 @@ public class MainActivity extends AppCompatActivity {
         AppCompatButton timeBtn = findViewById(R.id.time_btn);
         button.setOnClickListener(v -> {
             DatePickerDialog datePickerDialog = null;
-            datePickerDialog = new DatePickerDialog(MainActivity.this);
+            Locale locale = new Locale("fa");
+//            Locale locale= Locale.US;
+            datePickerDialog = new DatePickerDialog(MainActivity.this, locale);
             datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Single, DateRangeCalendarView.HolidayMode.Enable);
             datePickerDialog.setCanceledOnTouchOutside(true);
             PersianCalendar persianCalendar = new PersianCalendar();
@@ -43,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.TimePickerCallback() {
                 @Override
                 public void onTimeSelected(int hours, int mins) {
-                    TimeTxt.setText(String.valueOf(hours)+" : "+String.valueOf(mins));
+                    TimeTxt.setText(hours + " : " + mins);
                 }
 
                 @Override

@@ -37,6 +37,7 @@
             android:gravity="center"
             android:tag="dateTitle"
             android:text="فروردین 1397"
+            android:fontFamily="@font/font_regular"
             android:textColor="@color/week_color"
             android:textSize="@dimen/text_size_title" />
 

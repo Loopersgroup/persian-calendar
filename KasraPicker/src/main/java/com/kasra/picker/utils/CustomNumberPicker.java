@@ -8,6 +8,8 @@ import android.widget.EditText;
 
 import com.kasra.picker.R;
 
+import java.util.Locale;
+
 public class CustomNumberPicker extends android.widget.NumberPicker {
 
     Typeface type;
@@ -27,8 +29,15 @@ public class CustomNumberPicker extends android.widget.NumberPicker {
     public void addView(View child, int index,
                         android.view.ViewGroup.LayoutParams params) {
         super.addView(child, index, params);
-        type = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/font_regular.ttf");
+        if (Locale.getDefault().toString().toLowerCase().equals("fa_IR")
+                || Locale.getDefault().toString().toLowerCase().equals("fa")
+        ) {
+            type = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/fa_font_regular.ttf");
+        }else{
+            type = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/en_font_regular.ttf");
+        }
         updateView(child);
     }
 
@@ -36,8 +45,15 @@ public class CustomNumberPicker extends android.widget.NumberPicker {
     public void addView(View child, android.view.ViewGroup.LayoutParams params) {
         super.addView(child, params);
 
-        type = Typeface.createFromAsset(getContext().getAssets(),
-                "fonts/font_regular.ttf");
+        if (Locale.getDefault().toString().toLowerCase().equals("fa_IR")
+                || Locale.getDefault().toString().toLowerCase().equals("fa")
+        ) {
+            type = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/fa_font_regular.ttf");
+        }else{
+            type = Typeface.createFromAsset(getContext().getAssets(),
+                    "fonts/en_font_regular.ttf");
+        }
         updateView(child);
     }
 
