@@ -83,7 +83,7 @@ public class DatePickerDialog extends Dialog {
 
         this.typeface = FontUtils.Default(mContext);
 
-        initView();
+        initView() ;
 
         PersianCalendar today = new PersianCalendar();
         setCurrentDate(today);
