@@ -83,7 +83,6 @@ public class TimePickerDialog extends Dialog {
         hourPicker.setMaxValue(23);
         minutePicker.setMinValue(0);
         minutePicker.setMaxValue(59);
-
         hourPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

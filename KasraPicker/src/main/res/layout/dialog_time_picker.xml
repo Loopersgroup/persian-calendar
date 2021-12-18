@@ -128,13 +128,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/DefaultNumberPickerTheme"
+                android:descendantFocusability="blocksDescendants"
                 />
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
-                app:srcCompat="@drawable/scroll_minute_picker" />
+                app:srcCompat="@drawable/scroll_minute_picker"
+                />
         </FrameLayout>
 
         <FrameLayout
@@ -146,7 +148,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:theme="@style/DefaultNumberPickerTheme"
-
+                android:descendantFocusability="blocksDescendants"
                 />
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="match_parent"
