@@ -29,11 +29,12 @@ public class MainActivity extends AppCompatActivity {
             Locale locale = new Locale("fa");
 //            Locale locale= Locale.US;
             datePickerDialog = new DatePickerDialog(MainActivity.this, locale);
-            datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Single, DateRangeCalendarView.HolidayMode.Enable);
+            datePickerDialog.setSelectionMode(DateRangeCalendarView.SelectionMode.Range, DateRangeCalendarView.HolidayMode.Enable);
             datePickerDialog.setCanceledOnTouchOutside(true);
             PersianCalendar persianCalendar = new PersianCalendar();
             persianCalendar.setPersianDate(1400, 5, 22);
             datePickerDialog.selectedDate(persianCalendar);
+
 
 //            datePickerDialog.setOnSingleDateSelectedListener((startDate, endDate) -> {
 ////                        dateTxt.setText(startDate.getPersianShortDate());

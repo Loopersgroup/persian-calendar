@@ -135,10 +135,10 @@ public class DatePickerDialog extends Dialog {
         if (date == null) {
             date = new PersianCalendar();
         }
-        if (fromDateTxt == null) {
+        if (startDate == null) {
             startDate = new PersianCalendar();
         }
-        if (toDateTxt == null) {
+        if (endDate == null) {
             endDate = new PersianCalendar();
         }
         calendar = new DateRangeCalendarView(mContext);
